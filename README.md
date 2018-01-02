@@ -26,9 +26,10 @@ TODO: Write usage instructions here
 
 ## TODO
 
-- [ ] Support MySql
-- [ ] Support MiniTest
-- [ ] Configure location of fixture directories
+[ ] Support MySql
+[ ] Support MiniTest
+[ ] Configure location of fixture directories
+[ ] Specs
 
 ## Development
 

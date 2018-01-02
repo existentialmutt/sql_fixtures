@@ -1,7 +1,14 @@
 namespace "sql_fixtures" do
   desc "Start a server to edit test data"
   task :server do
+    puts "Starting Server in test mode"
     exec "RAILS_ENV=test bin/rails server"
+  end
+
+  desc "Start a Rails console to edit test data"
+  task :console do
+    puts "Starting console in test mode"
+    exec "RAILS_ENV=test bin/rails console"
   end
 
   desc "copy dev database to test database"
@@ -20,6 +27,7 @@ namespace "sql_fixtures" do
 
     # TODO test or spec directory
     BASE_DIR = Rails.root.join("spec", "db")
+    puts "exporting to #{BASE_DIR}"
     STRUCTURE_DIR = BASE_DIR.join "structure"
     DATA_DIR = BASE_DIR.join "data"
     CONSTRAINTS_DIR = BASE_DIR.join "constraints"
@@ -94,7 +102,7 @@ namespace "sql_fixtures" do
       raise "Please specify at lease one table in the TABLES environment variable"
     end
 
-    SqlFixtures::TableReloader.new.reload_tables! *tables
+    SqlFixtures::TableRefresher.new.refresh_tables! *tables
   end
 
 

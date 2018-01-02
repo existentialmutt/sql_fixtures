@@ -1,7 +1,9 @@
 module SqlFixtures
   class TableRefresher
     
-    BASE_DIR = Rails.root.join("spec", "db")
+    root_dir = Rails.root || Pathname.new(ENV["RAILS_ROOT"] || Dir.pwd)
+
+    BASE_DIR = root_dir.join("spec", "db")
     STRUCTURE_DIR = BASE_DIR.join "structure"
     DATA_DIR = BASE_DIR.join "data"
     CONSTRAINTS_DIR = BASE_DIR.join "constraints"
