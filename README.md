@@ -30,6 +30,7 @@ TODO: Write usage instructions here
 [ ] Support MiniTest
 [ ] Configure location of fixture directories
 [ ] Specs
+[ ] Documentation
 
 ## Development
 
